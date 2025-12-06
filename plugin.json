@@ -1,0 +1,85 @@
+{
+    "componentname": "MySQL",
+    "componenttitle": "Database (MySQL)",
+    "componentcategoryid": 3,
+    "componentclass": "mysql",
+    "version": "0.0.1",
+    "createdby": "Prisma Data Abadi",
+    "input": 1,
+    "output": 1,
+    "details": [
+        {
+            "detailtype": "text",
+            "lable": "Host",
+            "inputtype": "text",
+            "inputname": "host",
+            "inputdesc": "e.g. localhost",
+            "order": 1
+        },
+        {
+            "detailtype": "text",
+            "lable": "Port",
+            "inputtype": "number",
+            "inputname": "port",
+            "inputdesc": "e.g. 3306",
+            "order": 2
+        },
+        {
+            "detailtype": "text",
+            "lable": "Username",
+            "inputtype": "text",
+            "inputname": "username",
+            "inputdesc": "DB User",
+            "order": 3
+        },
+        {
+            "detailtype": "password",
+            "lable": "Password",
+            "inputtype": "password",
+            "inputname": "password",
+            "inputdesc": "DB Password",
+            "order": 4
+        },
+        {
+            "detailtype": "text",
+            "lable": "Database Name",
+            "inputtype": "text",
+            "inputname": "dbname",
+            "inputdesc": "Target Database",
+            "order": 5
+        },
+        {
+            "detailtype": "select",
+            "lable": "Data Type",
+            "inputtype": "select",
+            "inputname": "data_type",
+            "inputdesc": "Object Type",
+            "order": 6,
+            "options": "query,table,stored_procedure,stored_function"
+        },
+        {
+            "detailtype": "text",
+            "lable": "Object Name",
+            "inputtype": "text",
+            "inputname": "object_name",
+            "inputdesc": "Table/Func/Proc Name (Required for non-query actions)",
+            "order": 7
+        },
+        {
+            "detailtype": "textarea",
+            "lable": "Query",
+            "inputtype": "textarea",
+            "inputname": "query",
+            "inputdesc": "Raw SQL Query (if Mode=Query)",
+            "order": 8
+        },
+        {
+            "detailtype": "textarea",
+            "lable": "Parameters",
+            "inputtype": "textarea",
+            "inputname": "parameters",
+            "inputdesc": "JSON Array of arguments for Proc/Func/Query placeholders",
+            "order": 9
+        }
+    ]
+}
