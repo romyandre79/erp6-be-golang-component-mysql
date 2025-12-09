@@ -67,18 +67,34 @@ rmdir /s /q build
 REM ===========================
 REM MOVE TO dist/
 REM ===========================
-if not exist ..\erp6-be-golang-component-free-dist\mysql mkdir ..\erp6-be-golang-component-free-dist\mysql
-move %ZIPFILE% ..\erp6-be-golang-component-free-dist\mysql\
+if not exist ..\erp6-be-golang-component-dist\mysql mkdir ..\erp6-be-golang-component-dist\mysql
+move %ZIPFILE% ..\erp6-be-golang-component-dist\mysql\
 
 REM ===========================
 REM GENERATE CHECKSUM
 REM ===========================
-certutil -hashfile ..\erp6-be-golang-component-free-dist\mysql\%ZIPFILE% SHA256 > ..\erp6-be-golang-component-free-dist\mysql\checksums_v%new_version%.txt
+certutil -hashfile ..\erp6-be-golang-component-dist\mysql\%ZIPFILE% SHA256 > ..\erp6-be-golang-component-dist\mysql\checksums_v%new_version%.txt
 
 REM REMOVE unnecessary lines from certutil output
-powershell -Command "(Get-Content ..\erp6-be-golang-component-free-dist\mysql\checksums_v%new_version%.txt | Select-Object -Skip 1 | Select-Object -SkipLast 1) | Set-Content ..\erp6-be-golang-component-free-dist\mysql\checksums_v%new_version%.txt"
+powershell -Command "(Get-Content ..\erp6-be-golang-component-dist\mysql\checksums_v%new_version%.txt | Select-Object -Skip 1 | Select-Object -SkipLast 1) | Set-Content ..\erp6-be-golang-component-dist\mysql\checksums_v%new_version%.txt"
+
+REM ===========================
+REM UPDATE CHANGELOG
+REM ===========================
+echo Writing CHANGELOG.md...
+
+set change="Auto build version %new_version%"
+
+(
+    echo ## v%new_version% - %date%
+    echo - %change%
+    echo.
+    type CHANGELOG.md 2>nul
+) > CHANGELOG.tmp
+
+move /y CHANGELOG.tmp CHANGELOG.md
 
 echo.
-echo Build complete → ..\erp6-be-golang-component-free-dist\mysql\%ZIPFILE%
-echo Checksum file → ..\erp6-be-golang-component-free-dist\mysql\checksums_v%new_version%.txt
+echo Build complete → ..\erp6-be-golang-component-dist\mysql\%ZIPFILE%
+echo Checksum file → ..\erp6-be-golang-component-dist\mysql\checksums_v%new_version%.txt
 echo.

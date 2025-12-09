@@ -2,8 +2,8 @@
     "componentname": "MySQL",
     "componenttitle": "Database (MySQL)",
     "componentcategoryid": 3,
-    "componentclass": "mysql",
-    "version": "0.0.1",
+    "componentclass": "fa-solid fa-database",
+    "version": "0.0.0",
     "createdby": "Prisma Data Abadi",
     "input": 1,
     "output": 1,
@@ -55,15 +55,18 @@
             "inputname": "data_type",
             "inputdesc": "Object Type",
             "order": 6,
-            "options": "query,table,stored_procedure,stored_function"
+            "datasourcetype": "List",
+            "datasource": "query,table,stored_procedure,stored_function"
         },
         {
-            "detailtype": "text",
+            "detailtype": "select",
             "lable": "Object Name",
             "inputtype": "text",
             "inputname": "object_name",
             "inputdesc": "Table/Func/Proc Name (Required for non-query actions)",
-            "order": 7
+            "order": 7,
+            "datasourcetype": "List",
+            "datasource": "query,table,stored_procedure,stored_function"
         },
         {
             "detailtype": "textarea",
