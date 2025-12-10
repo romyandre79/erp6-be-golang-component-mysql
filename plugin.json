@@ -56,17 +56,15 @@
             "inputdesc": "Object Type",
             "order": 6,
             "datasourcetype": "List",
-            "datasource": "query,table,stored_procedure,stored_function"
+            "datasource": "query,table,stored_procedure,stored_function,node_result"
         },
         {
-            "detailtype": "select",
+            "detailtype": "text",
             "lable": "Object Name",
-            "inputtype": "combobox",
+            "inputtype": "text",
             "inputname": "object_name",
             "inputdesc": "Table/Func/Proc Name (Required for non-query actions)",
-            "order": 7,
-            "datasourcetype": "List",
-            "datasource": "query,table,stored_procedure,stored_function"
+            "order": 7
         },
         {
             "detailtype": "textarea",
